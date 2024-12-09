@@ -49,7 +49,7 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
     });
 
     Route::name('about.')->prefix('about')->group(function () {
-        Route::get('/edit', [SettingsController::class, 'editAbout'])->name('about.edit');
-        Route::post('/update', [SettingsController::class, 'updateAbout'])->name('about.update');
+        Route::get('/edit', [SettingsController::class, 'editAbout'])->name('edit');
+        Route::post('/update', [SettingsController::class, 'updateAbout'])->name('update');
     });
 });

@@ -52,7 +52,7 @@
             <div class="container z-bigger">
                 <div class="row justify-content-center">
                     <div class="col-md-7 text-center" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s">
-                        <h5>{{ $settings['address'] ?? 'Default Address' }}</h5>
+                        <h5>{{ $settings['address'] ?? '' }}</h5>
                     </div>
                     <div class="section clearfix"></div>
                     <div class="col-md-7 mt-5 text-center" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s">
@@ -69,13 +69,15 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12 text-center">
-                    <a href="mailto:{{ $settings['email'] ?? 'info@example.com' }}" class="cursor-link">
+                    <a href="mailto:{{ $settings['email'] ?? '' }}" class="cursor-link">
                         <div class="project-link-wrap on-contact">
-                            <p>{{ $settings['email'] ?? 'info@example.com' }}</p>
+                            <p>{{ $settings['email'] ?? '' }}</p>
                         </div>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+
+    @include('website.includes.footer')
 @endsection

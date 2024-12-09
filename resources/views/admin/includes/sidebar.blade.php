@@ -13,6 +13,12 @@
                 </svg> Projects
             </a>
 
+            <a class="nav-link" href="{{ route('admin.about.edit') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="/admin-src/vendors/@coreui/icons/svg/free.svg#cil-list"></use>
+                </svg> About Us
+            </a>
+
             <a class="nav-link" href="{{ route('admin.settings.edit') }}">
                 <svg class="nav-icon">
                     <use xlink:href="/admin-src/vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
