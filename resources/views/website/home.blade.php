@@ -9,7 +9,7 @@
         <ul class="case-study-wrapper">
             @foreach ($projects as $project)
                 <li class="case-study-name">
-                    <span>{{ $project->getTranslation('title', app()->getLocale()) }}</span>
+                    <span style="max-width: 70%">{{ $project->getTranslation('title', app()->getLocale()) }}</span>
                     <a href="{{ route('website.project', $project->slug) }}"
                         class="cursor-link animsition-link">{{ __('explore') }}</a>
                 </li>
@@ -24,7 +24,7 @@
                     <div class="dark-over-hero"></div>
                     <div class="hero-number-back">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</div>
                     <div class="hero-number">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</div>
-                    <div class="hero-number-fixed">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</div>
+                    <div class="hero-number-fixed">{{ str_pad($projects->count(), 2, '0', STR_PAD_LEFT) }}</div>
                     <div class="case-study-title">
                         {{ $project->getTranslation('tags', app()->getLocale()) }}
                     </div>

@@ -131,6 +131,23 @@
                                 </div>
                             </div>
 
+                            {{-- Mobile Video --}}
+                            <div class="col-md-12">
+                                <label for="video_mobile" class="form-label">Mobile Video File</label>
+                                @if ($project->video_mobile)
+                                    <div class="mb-3">
+                                        <video width="320" height="240" controls>
+                                            <source src="{{ Storage::url($project->video_mobile) }}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                @endif
+                                <div class="input-group mb-3">
+                                    <input type="file" name="video_mobile" id="video_mobile" class="form-control"
+                                        accept="video/mp4,video/mov,video/avi,video/mkv">
+                                </div>
+                            </div>
+
                             {{-- Photo 1 --}}
                             <div class="col-md-6">
                                 <label for="photo_1" class="form-label">Photo 1</label>

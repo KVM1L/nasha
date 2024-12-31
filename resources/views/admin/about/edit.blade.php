@@ -23,7 +23,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.settings.update') }}" method="post" class="mt-3"
+                    <form action="{{ route('admin.about.update') }}" method="post" class="mt-3"
                         enctype="multipart/form-data">
                         @csrf
 

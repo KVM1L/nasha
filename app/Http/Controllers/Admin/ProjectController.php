@@ -31,6 +31,7 @@ class ProjectController extends Controller
             'description' => 'nullable|array',
             'cover' => 'nullable|image',
             'video' => 'nullable|file|mimes:mp4,mov,avi,mkv|max:204800',
+            'video_mobile' => 'nullable|file|mimes:mp4,mov,avi,mkv|max:204800',
             'photo_1' => 'nullable|image',
             'photo_2' => 'nullable|image',
             'footer_photo' => 'nullable|image',
@@ -44,6 +45,10 @@ class ProjectController extends Controller
         // Обработка видеофайла
         if ($request->hasFile('video')) {
             $data['video'] = $request->file('video')->store('projects/videos', 'public');
+        }
+
+        if ($request->hasFile('video_mobile')) {
+            $data['video_mobile'] = $request->file('video_mobile')->store('projects/videos', 'public');
         }
 
         // Обработка фото
@@ -79,6 +84,7 @@ class ProjectController extends Controller
             'description' => 'nullable|array',
             'cover' => 'nullable|image',
             'video' => 'nullable|file|mimes:mp4,mov,avi,mkv|max:204800',
+            'video_mobile' => 'nullable|file|mimes:mp4,mov,avi,mkv|max:204800',
             'photo_1' => 'nullable|image',
             'photo_2' => 'nullable|image',
             'footer_photo' => 'nullable|image',
@@ -98,6 +104,13 @@ class ProjectController extends Controller
                 Storage::disk('public')->delete($project->video);
             }
             $data['video'] = $request->file('video')->store('projects/videos', 'public');
+        }
+
+        if ($request->hasFile('video_mobile')) {
+            if ($project->video_mobile) {
+                Storage::disk('public')->delete($project->video_mobile);
+            }
+            $data['video_mobile'] = $request->file('video_mobile')->store('projects/videos', 'public');
         }
 
         // Обработка фото
@@ -136,6 +149,9 @@ class ProjectController extends Controller
         }
         if ($project->video) {
             Storage::disk('public')->delete($project->video);
+        }
+        if ($project->video_mobile) {
+            Storage::disk('public')->delete($project->video_mobile);
         }
         if ($project->photo_1) {
             Storage::disk('public')->delete($project->photo_1);

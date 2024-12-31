@@ -102,6 +102,14 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-12">
+                                <label for="video_mobile" class="form-label">Mobile Video File</label>
+                                <div class="input-group mb-3">
+                                    <input type="file" name="video_mobile" id="video_mobile" class="form-control"
+                                           accept="video/mp4,video/mov,video/avi,video/mkv">
+                                </div>
+                            </div>
+
                             <div class="col-md-6">
                                 <label for="photo_1" class="form-label">Photo 1</label>
                                 <div class="input-group mb-3">

@@ -22,21 +22,28 @@
         <div class="container">
             <div class="row justify-content-center">
 
-                <!-- Видео проекта со звуком, кликабельное -->
-                <div class="col-md-12" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s"
-                    data-scroll-reveal-id="2" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true">
+                <!-- Весь контейнер для видео -->
+                <div class="col-md-12" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s">
                     <div class="video-section">
-                        @if ($project->video)
-                            <div class="video-wrapper">
-                                <figure class="vimeo">
-                                    <iframe src="{{ Storage::url($project->video) }}" width="500" height="281" frameborder="0"
-                                        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
-                                    </iframe>
+                        <div class="video-wrapper">
+
+                            <figure class="@if ($project->video_mobile) d-none d-md-block @endif"
+                                style="text-align: center;">
+                                <video controls preload="metadata"
+                                    style="max-width: 100%; height: auto; display: inline-block;">
+                                    <source src="{{ Storage::url($project->video) }}" type="video/mp4">
+                                </video>
+                            </figure>
+
+                            @if ($project->video_mobile)
+                                <figure class="d-block d-md-none" style="text-align:center;">
+                                    <video controls preload="metadata" playsinline class="vertical-video">
+                                        <source src="{{ Storage::url($project->video_mobile) }}" type="video/mp4">
+                                    </video>
                                 </figure>
-                            </div>
-                        @else
-                            <p class="text-center text-white">Video not available.</p>
-                        @endif
+                            @endif
+
+                        </div>
                     </div>
                 </div>
 

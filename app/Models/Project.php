@@ -15,6 +15,7 @@ class Project extends Model
         'tags',
         'cover',
         'video',
+        'video_mobile',
         'text',
         'description',
         'photo_1',

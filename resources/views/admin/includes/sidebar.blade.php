@@ -19,6 +19,24 @@
                 </svg> About Us
             </a>
 
+            <a class="nav-link" href="{{ route('admin.sponsors.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="/admin-src/vendors/@coreui/icons/svg/free.svg#cil-dollar"></use>
+                </svg> Sponsors
+            </a>
+
+            <a class="nav-link" href="{{ route('admin.clients.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="/admin-src/vendors/@coreui/icons/svg/free.svg#cil-briefcase"></use>
+                </svg> Clients
+            </a>
+
+            <a class="nav-link" href="{{ route('admin.employees.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="/admin-src/vendors/@coreui/icons/svg/free.svg#cil-people"></use>
+                </svg> Employees
+            </a>
+
             <a class="nav-link" href="{{ route('admin.settings.edit') }}">
                 <svg class="nav-icon">
                     <use xlink:href="/admin-src/vendors/@coreui/icons/svg/free.svg#cil-settings"></use>

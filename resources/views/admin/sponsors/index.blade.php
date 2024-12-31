@@ -5,7 +5,7 @@
         <div class="container-lg">
             <div class="card mb-3">
                 <div class="card-body">
-                    <h2 class="card-title mb-5">Clients</h2>
+                    <h2 class="card-title mb-5">Sponsors</h2>
 
                     @if (session('success'))
                         <div class="alert alert-success">
@@ -23,7 +23,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.clients.store') }}" method="POST" class="mt-3"
+                    <form action="{{ route('admin.sponsors.store') }}" method="POST" class="mt-3"
                         enctype="multipart/form-data">
                         @csrf
 
@@ -51,27 +51,27 @@
 
                     <hr class="my-4">
 
-                    <h5>Existing Client Logos</h5>
-                    @if ($clients->count())
+                    <h5>Existing Sponsor Logos</h5>
+                    @if ($sponsors->count())
                         <div class="row">
-                            @foreach ($clients as $client)
+                            @foreach ($sponsors as $sponsor)
                                 <div class="col-md-3 mt-3 position-relative">
                                     <div class="border p-2 text-center position-relative">
                                         {{-- Отображаем логотип --}}
-                                        <img src="{{ Storage::url($client->logo) }}" alt="Client Logo"
+                                        <img src="{{ Storage::url($sponsor->logo) }}" alt="Sponsor Logo"
                                             style="max-width: 100%; max-height: 150px; object-fit: contain;">
                                         <p class="mt-2 mb-0">
-                                            <strong>{{ $client->name }}</strong>
+                                            <strong>{{ $sponsor->name }}</strong>
                                         </p>
                                         <p class="mb-2">
-                                            {{ $client->url }}
+                                            {{ $sponsor->url }}
                                         </p>
 
                                         <div class="position-absolute top-0 end-0 mt-1 me-1">
-                                            <a href="{{ route('admin.clients.edit', $client->id) }}">
+                                            <a href="{{ route('admin.sponsors.edit', $sponsor->id) }}">
                                                 <button type="button" class="btn btn-secondary">Edit</button>
                                             </a>
-                                            <a href="{{ route('admin.clients.destroy', $client->id) }}" class="delete">
+                                            <a href="{{ route('admin.sponsors.destroy', $sponsor->id) }}" class="delete">
                                                 <button type="button" class="btn btn-danger">Delete</button>
                                             </a>
                                         </div>
@@ -80,7 +80,7 @@
                             @endforeach
                         </div>
                     @else
-                        <p>No client logos added yet.</p>
+                        <p>No sponsor logos added yet.</p>
                     @endif
 
                 </div>
