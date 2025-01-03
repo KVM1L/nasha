@@ -35,7 +35,7 @@ class ContactController extends Controller
         $emailTo = Setting::firstWhere('key', 'email')?->value;
 
         if ($emailTo) {
-            Mail::to('ВАШ_EMAIL@domain.com')->send(new ContactFormMail($formData));
+            Mail::to($emailTo)->send(new ContactFormMail($formData));
         }
 
         return redirect()->back()->with('success', 'Thank you!');

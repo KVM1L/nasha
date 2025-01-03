@@ -14,13 +14,20 @@
 
     <div class="section padding-bottom-big over-hide background-dark-2">
 
-        @if (session('success'))
-            <div class="text-center mb-5">
-                <h5>{{ session('success') }}</h5>
-            </div>
-        @endif
-
         <div class="container">
+            @if ($errors->any())
+                <div class="alert alert-danger mb-5">
+                    @foreach ($errors->all() as $error)
+                        - {{ $error }}<br>
+                    @endforeach
+                </div>
+            @endif
+
+            @if (session('success'))
+                <div class="text-center mb-5">
+                    <h5>{{ session('success') }}</h5>
+                </div>
+            @endif
             <form action="{{ route('website.contact.post') }}" method="POST">
                 @csrf
                 <div class="row justify-content-center">
