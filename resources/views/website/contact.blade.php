@@ -36,7 +36,7 @@
                     <div class="col-md-8 mt-4 ajax-form">
                         <textarea class="cursor-link" name="message" placeholder="{{ __('Tell Us Everything') }}"></textarea>
                     </div>
-                    <div class="section clearfix"></div>
+                    <div class="section clearfix mb-3"></div>
                     {!! NoCaptcha::display() !!}
                     <div class="section clearfix"></div>
                     <div class="col-md-8 mt-4 ajax-form text-center">

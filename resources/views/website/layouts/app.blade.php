@@ -64,6 +64,8 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css" />
 
+    {!! NoCaptcha::renderJs() !!}
+
 </head>
 
 <body>
