@@ -18,7 +18,7 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:8192',
             'name' => 'required|string|max:255',
         ]);
 
@@ -43,7 +43,7 @@ class EmployeeController extends Controller
     public function update(Request $request, Employee $employee)
     {
         $request->validate([
-            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:8192',
             'name' => 'required|string|max:255',
         ]);
 

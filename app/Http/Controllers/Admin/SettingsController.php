@@ -27,7 +27,7 @@ class SettingsController extends Controller
             'phone' => 'nullable|string',
             'email' => 'nullable|email',
             'google_maps_url' => 'nullable|url',
-            'map_image' => 'nullable|image|max:2048', // Максимальный размер 2МБ
+            'map_image' => 'nullable|image|max:8192', // Максимальный размер 2МБ
         ]);
 
         $settings = Setting::pluck('value', 'key')->toArray();
@@ -65,13 +65,13 @@ class SettingsController extends Controller
     public function updateAbout(Request $request)
     {
         $data = $request->validate([
-            'about_video' => 'nullable|file|mimetypes:video/mp4,video/mov,video/avi|max:20480',
+            'about_video' => 'nullable|file|mimetypes:video/mp4,video/mov,video/avi|max:204800',
             'about_description' => 'nullable|array',
             'blocks' => 'nullable|array',
             'quote' => 'nullable|array',
             'quote_author' => 'nullable|array',
-            'about_photo_1' => 'nullable|image|max:2048',
-            'about_photo_2' => 'nullable|image|max:2048',
+            'about_photo_1' => 'nullable|image|max:8192',
+            'about_photo_2' => 'nullable|image|max:8192',
         ]);
 
         $settings = Setting::pluck('value', 'key')->toArray();

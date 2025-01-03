@@ -18,7 +18,7 @@ class SponsorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:8192',
             'name' => 'required|string|max:255',
             'url'  => 'nullable|url',
         ]);
@@ -44,7 +44,7 @@ class SponsorController extends Controller
     public function update(Request $request, Sponsor $sponsor)
     {
         $request->validate([
-            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:8192',
             'name' => 'required|string|max:255',
             'url'  => 'nullable|url',
         ]);

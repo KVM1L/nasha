@@ -22,28 +22,65 @@
         <div class="container">
             <div class="row justify-content-center">
 
+                <style>                    
+                    .video-container {
+                        position: relative;
+                        padding-top: 56.25%;
+                        width: 100%;
+                        overflow: hidden;
+                    }
+
+                    .video-container video {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                    .video-container-mobile {
+                        position: relative;
+                        padding-top: 177.78%;
+                        width: 100%;
+                        overflow: hidden;
+                    }
+
+                    .video-container-mobile video {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                </style>
+
                 <!-- Весь контейнер для видео -->
                 <div class="col-md-12" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s">
                     <div class="video-section">
-                        <div class="video-wrapper">
+                        {{-- <div class="video-wrapper"> --}}
 
                             <figure class="@if ($project->video_mobile) d-none d-md-block @endif"
                                 style="text-align: center;">
-                                <video controls preload="metadata"
-                                    style="max-width: 100%; height: auto; display: inline-block;">
-                                    <source src="{{ Storage::url($project->video) }}" type="video/mp4">
-                                </video>
+                                <div class="video-container">
+                                    <video controls preload="metadata">
+                                        <source src="{{ Storage::url($project->video) }}" type="video/mp4" />
+                                    </video>
+                                </div>
                             </figure>
 
                             @if ($project->video_mobile)
-                                <figure class="d-block d-md-none" style="text-align:center;">
-                                    <video controls preload="metadata" playsinline class="vertical-video">
-                                        <source src="{{ Storage::url($project->video_mobile) }}" type="video/mp4">
-                                    </video>
+                                <figure class="d-block d-md-none">
+                                    <div class="video-container-mobile">
+                                        <video controls preload="metadata">
+                                            <source src="{{ Storage::url($project->video_mobile) }}" type="video/mp4">
+                                        </video>
+                                    </div>
                                 </figure>
                             @endif
 
-                        </div>
+                        {{-- </div> --}}
                     </div>
                 </div>
 

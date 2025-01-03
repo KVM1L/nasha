@@ -12,45 +12,61 @@
         </div>
     </div> --}}
 
-    <style>
-        @media (max-width: 1201px) {
-
-            .video-wrapper,
-            figure.vimeo,
-            figure.youtube {
-                padding-bottom: 120% !important;
-            }
+    <style>                    
+        .video-container {
+            position: relative;
+            padding-top: 56.25%;
+            width: 100%;
+            overflow: hidden;
         }
 
-        @media (max-width: 1201px) {
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-            .video-wrapper,
-            figure.vimeo,
-            figure.youtube {
-                padding-bottom: 58% !important;
-            }
+        .video-container-mobile {
+            position: relative;
+            padding-top: 177.78%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-container-mobile video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 
     <div class="section padding-bottom over-hide background-dark-2">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12" style="margin-top:150px">
-                    <!-- Видео о нас -->
-                    <div class="video-section">
-                        @if (!empty($aboutSettings['about_video']))
-                            <div class="video-wrapper">
-                                <figure class="vimeo">
-                                    <video width="100%" height="500" controls>
-                                        <source src="{{ Storage::url($aboutSettings['about_video']) }}" type="video/mp4">
+
+                <!-- Весь контейнер для видео -->
+                <div class="col-md-12" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s"
+                    style="margin-top:150px">
+                    @if (!empty($aboutSettings['about_video']))
+                        <div class="video-section">
+                            <figure style="text-align: center;">
+                                <div class="video-container">
+                                    <video controls preload="metadata">
+                                        <source src="{{ Storage::url($aboutSettings['about_video']) }}" type="video/mp4" />
                                     </video>
-                                </figure>
-                            </div>
-                        @endif
-                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    @endif
                 </div>
 
-                <div class="col-md-8 text-center">
+                <div class="col-md-8 text-center mt-5">
                     <p class="mb-0 pb-0 lead">{{ $aboutSettings['about_description'][app()->getLocale()] ?? '' }}</p>
                 </div>
 
@@ -135,8 +151,8 @@
                     @foreach ($employees as $employee)
                         <div class="col-6 col-md-4 col-lg-3">
                             <div class="card gallery-item mb-5">
-                                <img src="{{ Storage::url($employee->image) }}" class="card-img-top m-3" style="width: initial"
-                                    alt="{{ $employee->name }}">
+                                <img src="{{ Storage::url($employee->image) }}" class="card-img-top m-3"
+                                    style="width: initial" alt="{{ $employee->name }}">
                                 <div class="card-body text-center">
                                     <h6 style="color: #000">{{ $employee->name }}</h6>
                                 </div>
