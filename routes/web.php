@@ -20,7 +20,7 @@ Route::middleware([SetLocale::class])->group(function () {
     Route::get('/about', [AboutController::class, 'index'])->name('website.about');
     Route::get('/projects/{slug}', [ProjectController::class, 'index'])->name('website.project');
     Route::get('/contact', [ContactController::class, 'index'])->name('website.contact');
-    Route::get('/contact/form', [ContactController::class, 'post'])->name('website.contact.post');
+    Route::post('/contact/form', [ContactController::class, 'post'])->name('website.contact.post');
 });
 
 Route::get('/lang/{locale}', function ($locale) {
