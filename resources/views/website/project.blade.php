@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row justify-content-center">
 
-                <style>                    
+                <style>
                     .video-container {
                         position: relative;
                         padding-top: 56.25%;
@@ -61,24 +61,24 @@
                     <div class="video-section">
                         {{-- <div class="video-wrapper"> --}}
 
-                            <figure class="@if ($project->video_mobile) d-none d-md-block @endif"
-                                style="text-align: center;">
-                                <div class="video-container">
-                                    <video controls preload="metadata">
-                                        <source src="{{ Storage::url($project->video) }}" type="video/mp4" />
+                        <figure class="@if ($project->video_mobile) d-none d-md-block @endif" id="figure-desktop"
+                            style="text-align: center;">
+                            <div class="video-container">
+                                <video id="video-desktop" preload="metadata" controls autoplay muted>
+                                    <source src="{{ Storage::url($project->video) }}" type="video/mp4" />
+                                </video>
+                            </div>
+                        </figure>
+
+                        @if ($project->video_mobile)
+                            <figure class="d-block d-md-none" id="figure-mobile">
+                                <div class="video-container-mobile">
+                                    <video id="video-mobile" preload="metadata" controls autoplay muted playsinline>
+                                        <source src="{{ Storage::url($project->video_mobile) }}" type="video/mp4">
                                     </video>
                                 </div>
                             </figure>
-
-                            @if ($project->video_mobile)
-                                <figure class="d-block d-md-none">
-                                    <div class="video-container-mobile">
-                                        <video controls preload="metadata">
-                                            <source src="{{ Storage::url($project->video_mobile) }}" type="video/mp4">
-                                        </video>
-                                    </div>
-                                </figure>
-                            @endif
+                        @endif
 
                         {{-- </div> --}}
                     </div>
@@ -146,4 +146,34 @@
     </div>
 
     @include('website.includes.footer')
+@endsection
+
+@section('js')
+    <script>
+        function playVisibleVideo() {
+            const figureDesktop = document.getElementById('figure-desktop');
+            const figureMobile = document.getElementById('figure-mobile');
+
+            if (!figureDesktop && !figureMobile) return;
+
+            const videoDesktop = document.getElementById('video-desktop');
+            const videoMobile = document.getElementById('video-mobile');
+
+            if (figureDesktop) {
+                const desktopHidden = window.getComputedStyle(figureDesktop).display === 'none';
+                if (!desktopHidden && videoDesktop) {
+                    videoDesktop.play();
+                }
+            }
+
+            if (figureMobile) {
+                const mobileHidden = window.getComputedStyle(figureMobile).display === 'none';
+                if (!mobileHidden && videoMobile) {
+                    videoMobile.play();
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', playVisibleVideo);
+    </script>
 @endsection

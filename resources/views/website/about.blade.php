@@ -57,7 +57,7 @@
                         <div class="video-section">
                             <figure style="text-align: center;">
                                 <div class="video-container">
-                                    <video controls preload="metadata">
+                                    <video controls preload="metadata" controls autoplay muted>
                                         <source src="{{ Storage::url($aboutSettings['about_video']) }}" type="video/mp4" />
                                     </video>
                                 </div>
@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="col-md-8 text-center mt-5">
-                    <p class="mb-0 pb-0 lead">{{ $aboutSettings['about_description'][app()->getLocale()] ?? '' }}</p>
+                    <p class="mb-0 pb-0 lead">{!! $aboutSettings['about_description'][app()->getLocale()] ?? '' !!}</p>
                 </div>
 
                 <div class="section clearfix"></div>
