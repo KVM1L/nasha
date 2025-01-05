@@ -27,17 +27,12 @@
                         @endif
 
                         <div class="row">
-                            <div class="col-md-4">
-                                <label for="name" class="form-label">Name (optional)</label>
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Name (and position after comma, optional)</label>
                                 <input type="text" name="name" id="name" class="form-control"
                                     value="{{ old('name', $employee->name) }}">
                             </div>
-                            <div class="col-md-4">
-                                <label for="url" class="form-label">URL (optional)</label>
-                                <input type="text" name="url" id="url" class="form-control"
-                                    value="{{ old('url', $employee->url) }}">
-                            </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label for="image" class="form-label">Image</label>
                                 <input type="file" name="image" id="image" class="form-control" accept="image/*">
                             </div>

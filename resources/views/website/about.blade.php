@@ -154,7 +154,11 @@
                                 <img src="{{ Storage::url($employee->image) }}" class="card-img-top m-3"
                                     style="width: initial;" alt="{{ $employee->name }}">
                                 <div class="card-body text-center">
-                                    <h6>{{ $employee->name }}</h6>
+                                    @php($parts = array_map('trim', explode(',', $employee->name, 2)))
+                                    <h6>{{ $parts[0] }}</h6>
+                                    @if (isset($parts[1]))
+                                        <p>{{ $parts[1] }}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -29,7 +29,7 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="name" class="form-label">Name (optional)</label>
+                                <label for="name" class="form-label">Name (and position after comma, optional)</label>
                                 <input type="text" name="name" id="name" class="form-control"
                                     value="{{ old('name') }}">
                             </div>
