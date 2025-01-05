@@ -187,7 +187,7 @@
     @include('website.includes.footer')
 @endsection
 
-{{-- @section('js')
+@section('js')
     <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
 
     <script>
@@ -213,4 +213,4 @@
             });
         });
     </script>
-@endsection --}}
+@endsection
