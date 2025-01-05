@@ -66,8 +66,8 @@
                     @endif
                 </div>
 
-                <div class="col-md-8 text-center mt-5">
-                    <p class="mb-0 pb-0 lead">{!! $aboutSettings['about_description'][app()->getLocale()] ?? '' !!}</p>
+                <div class="col-md-8 mt-5">
+                    <p class="mb-0 pb-0 lead">{!! nl2br(e($aboutSettings['about_description'][app()->getLocale()] ?? '')) !!}</p>
                 </div>
 
                 <div class="section clearfix"></div>

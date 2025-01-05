@@ -86,10 +86,10 @@
 
                 <!-- Текст -->
                 @if ($project->getTranslation('text', app()->getLocale()))
-                    <div class="col-md-8 padding-top-bottom text-center"
+                    <div class="col-md-8 padding-top-bottom"
                         data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s">
                         <p class="mb-0 pb-0 lead">
-                            {!! $project->getTranslation('text', app()->getLocale()) !!}
+                            {!! nl2br(e($project->getTranslation('text', app()->getLocale()))) !!}
                         </p>
                     </div>
                 @endif
@@ -121,9 +121,9 @@
                 <!-- 3 колонки текста (description) -->
                 @if ($project->getTranslation('description', app()->getLocale()))
                     <div class="col-md-12" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s">
-                        <div class="three-columns-text text-white text-center lead">
-                            {!! $project->getTranslation('description', app()->getLocale()) !!}
-                        </div>
+                        <div class="three-columns-text lead">
+                            {!! nl2br(e($project->getTranslation('description', app()->getLocale()))) !!}
+                        </div>                        
                     </div>
                 @endif
 
