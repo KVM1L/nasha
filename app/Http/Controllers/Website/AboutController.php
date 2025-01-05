@@ -16,7 +16,7 @@ class AboutController extends Controller
         $aboutSettings = Setting::pluck('value', 'key')->toArray();
         $sponsors = Sponsor::all();
         $clients = Client::all();
-        $employees = Employee::latest()->get();
+        $employees = Employee::oldest()->get();
 
         return view('website.about', compact('aboutSettings', 'sponsors', 'clients', 'employees'));
     }

@@ -12,7 +12,7 @@
         </div>
     </div> --}}
 
-    <style>                    
+    <style>
         .video-container {
             position: relative;
             padding-top: 56.25%;
@@ -147,14 +147,14 @@
         <div class="section">
             <div class="container">
                 <h5 class="text-center my-5">{{ __('Our Members') }}</h5>
-                <div class="row g-4">
+                <div class="row g-4 justify-content-center"><!-- центрируем элементы -->
                     @foreach ($employees as $employee)
                         <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card gallery-item mb-5">
+                            <div class="card gallery-item mb-5 text-white" style="background-color: #171717">
                                 <img src="{{ Storage::url($employee->image) }}" class="card-img-top m-3"
-                                    style="width: initial" alt="{{ $employee->name }}">
+                                    style="width: initial;" alt="{{ $employee->name }}">
                                 <div class="card-body text-center">
-                                    <h6 style="color: #000">{{ $employee->name }}</h6>
+                                    <h6>{{ $employee->name }}</h6>
                                 </div>
                             </div>
                         </div>
