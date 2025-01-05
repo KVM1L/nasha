@@ -44,6 +44,13 @@
             height: 100%;
             object-fit: cover;
         }
+
+        .owl-carousel .item {
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+
     </style>
 
     <div class="section padding-bottom over-hide background-dark-2">
