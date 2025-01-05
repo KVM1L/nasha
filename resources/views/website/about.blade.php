@@ -111,7 +111,7 @@
                 <h5 class="text-center my-5">{{ __('Special thanks') }}</h5>
                 <div class="owl-carousel owl-theme pb-5">
                     @foreach ($sponsors as $sponsor)
-                        <div class="item ml-3">
+                        <div class="item mx-auto">
                             <a href="{{ $sponsor->url ?? '#' }}" target="_blank" rel="noopener">
                                 <img src="{{ Storage::url($sponsor->logo) }}" alt="{{ $sponsor->name }}">
                             </a>
@@ -128,7 +128,7 @@
                 <h5 class="text-center my-5">{{ __('They trust us') }}</h5>
                 <div class="owl-carousel owl-theme mb-5">
                     @foreach ($clients as $client)
-                        <div class="item ml-3">
+                        <div class="item mx-auto">
                             <a href="{{ $client->url ?? '#' }}" target="_blank" rel="noopener">
                                 <img src="{{ Storage::url($client->logo) }}" alt="{{ $client->name }}">
                             </a>

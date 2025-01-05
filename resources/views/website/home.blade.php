@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="section full-height over-hide background-dark-2">
-        <div class="case-study-name-title">case studies</div>
+        {{-- <div class="case-study-name-title">case studies</div> --}}
 
         <ul class="case-study-wrapper">
             @foreach ($projects as $project)
