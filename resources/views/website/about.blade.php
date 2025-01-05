@@ -57,7 +57,7 @@
                         <div class="video-section">
                             <figure style="text-align: center;">
                                 <div class="video-container">
-                                    <video controls preload="metadata" controls autoplay muted>
+                                    <video controls preload="metadata" controls>
                                         <source src="{{ Storage::url($aboutSettings['about_video']) }}" type="video/mp4" />
                                     </video>
                                 </div>
@@ -187,7 +187,7 @@
     @include('website.includes.footer')
 @endsection
 
-@section('js')
+{{-- @section('js')
     <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
 
     <script>
@@ -213,4 +213,4 @@
             });
         });
     </script>
-@endsection
+@endsection --}}

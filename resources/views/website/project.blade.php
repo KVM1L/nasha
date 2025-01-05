@@ -64,7 +64,7 @@
                         <figure class="@if ($project->video_mobile) d-none d-md-block @endif" id="figure-desktop"
                             style="text-align: center;">
                             <div class="video-container">
-                                <video id="video-desktop" preload="metadata" controls autoplay muted>
+                                <video id="video-desktop" preload="metadata" controls>
                                     <source src="{{ Storage::url($project->video) }}" type="video/mp4" />
                                 </video>
                             </div>
@@ -73,7 +73,7 @@
                         @if ($project->video_mobile)
                             <figure class="d-block d-md-none" id="figure-mobile">
                                 <div class="video-container-mobile">
-                                    <video id="video-mobile" preload="metadata" controls autoplay muted playsinline>
+                                    <video id="video-mobile" preload="metadata" controls playsinline>
                                         <source src="{{ Storage::url($project->video_mobile) }}" type="video/mp4">
                                     </video>
                                 </div>
@@ -148,7 +148,7 @@
     @include('website.includes.footer')
 @endsection
 
-@section('js')
+{{-- @section('js')
     <script>
         function playVisibleVideo() {
             const figureDesktop = document.getElementById('figure-desktop');
@@ -176,4 +176,4 @@
 
         document.addEventListener('DOMContentLoaded', playVisibleVideo);
     </script>
-@endsection
+@endsection --}}
