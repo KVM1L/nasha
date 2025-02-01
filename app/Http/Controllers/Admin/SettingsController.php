@@ -65,7 +65,7 @@ class SettingsController extends Controller
     public function updateAbout(Request $request)
     {
         $data = $request->validate([
-            'about_video' => 'nullable|file|mimetypes:video/mp4,video/mov,video/avi|max:204800',
+            'about_video' => 'nullable|file|mimetypes:video/mp4,video/mov,video/avi',
             'about_description' => 'nullable|array',
             'blocks' => 'nullable|array',
             'quote' => 'nullable|array',
