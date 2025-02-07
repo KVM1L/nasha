@@ -98,17 +98,20 @@
 
                 <!-- 2 фотографии -->
                 <div class="col-md-6 mt-4" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s">
-                    @if ($project->photo_1)
-                        <a href="{{ Storage::url($project->photo_1) }}" class="cursor-link" data-fancybox="gallery">
+                    @if ($project->photo_1 && $project->video_1)
+                        <a href="javascript:;" class="cursor-link" data-fancybox="video"
+                            data-src="{{ Storage::url($project->video_1) }}">
                             <div class="img-wrap">
                                 <img src="{{ Storage::url($project->photo_1) }}" class="cursor-more" alt="photo_1">
                             </div>
                         </a>
                     @endif
                 </div>
+
                 <div class="col-md-6 mt-4" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s">
-                    @if ($project->photo_2)
-                        <a href="{{ Storage::url($project->photo_2) }}" class="cursor-link" data-fancybox="gallery">
+                    @if ($project->photo_2 && $project->video_2)
+                        <a href="javascript:;" class="cursor-link" data-fancybox="video"
+                            data-src="{{ Storage::url($project->video_2) }}">
                             <div class="img-wrap">
                                 <img src="{{ Storage::url($project->photo_2) }}" class="cursor-more" alt="photo_2">
                             </div>
@@ -123,7 +126,7 @@
                     <div class="col-md-12" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s">
                         <div class="three-columns-text lead">
                             {!! nl2br(e($project->getTranslation('description', app()->getLocale()))) !!}
-                        </div>                        
+                        </div>
                     </div>
                 @endif
 
@@ -148,32 +151,15 @@
     @include('website.includes.footer')
 @endsection
 
-{{-- @section('js')
+@section('js')
     <script>
-        function playVisibleVideo() {
-            const figureDesktop = document.getElementById('figure-desktop');
-            const figureMobile = document.getElementById('figure-mobile');
-
-            if (!figureDesktop && !figureMobile) return;
-
-            const videoDesktop = document.getElementById('video-desktop');
-            const videoMobile = document.getElementById('video-mobile');
-
-            if (figureDesktop) {
-                const desktopHidden = window.getComputedStyle(figureDesktop).display === 'none';
-                if (!desktopHidden && videoDesktop) {
-                    videoDesktop.play();
+        $(document).ready(function() {
+            $("[data-fancybox='video']").fancybox({
+                type: "iframe",
+                iframe: {
+                    preload: false
                 }
-            }
-
-            if (figureMobile) {
-                const mobileHidden = window.getComputedStyle(figureMobile).display === 'none';
-                if (!mobileHidden && videoMobile) {
-                    videoMobile.play();
-                }
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', playVisibleVideo);
+            });
+        });
     </script>
-@endsection --}}
+@endsection

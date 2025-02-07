@@ -34,15 +34,15 @@ class ProjectController extends Controller
             'video_mobile' => 'nullable|file|mimes:mp4,mov,avi,mkv',
             'photo_1' => 'nullable|image',
             'photo_2' => 'nullable|image',
+            'video_1' => 'nullable|file|mimes:mp4,mov,avi,mkv',
+            'video_2' => 'nullable|file|mimes:mp4,mov,avi,mkv',
             'footer_photo' => 'nullable|image',
         ]);
 
-        // Обработка файлов (обложка)
         if ($request->hasFile('cover')) {
             $data['cover'] = $request->file('cover')->store('projects', 'public');
         }
 
-        // Обработка видеофайла
         if ($request->hasFile('video')) {
             $data['video'] = $request->file('video')->store('projects/videos', 'public');
         }
@@ -51,13 +51,22 @@ class ProjectController extends Controller
             $data['video_mobile'] = $request->file('video_mobile')->store('projects/videos', 'public');
         }
 
-        // Обработка фото
         if ($request->hasFile('photo_1')) {
             $data['photo_1'] = $request->file('photo_1')->store('projects', 'public');
         }
+
         if ($request->hasFile('photo_2')) {
             $data['photo_2'] = $request->file('photo_2')->store('projects', 'public');
         }
+
+        if ($request->hasFile('video_1')) {
+            $data['video_1'] = $request->file('video_1')->store('projects/videos', 'public');
+        }
+
+        if ($request->hasFile('video_2')) {
+            $data['video_2'] = $request->file('video_2')->store('projects/videos', 'public');
+        }
+
         if ($request->hasFile('footer_photo')) {
             $data['footer_photo'] = $request->file('footer_photo')->store('projects', 'public');
         }
@@ -87,10 +96,11 @@ class ProjectController extends Controller
             'video_mobile' => 'nullable|file|mimes:mp4,mov,avi,mkv',
             'photo_1' => 'nullable|image',
             'photo_2' => 'nullable|image',
+            'video_1' => 'nullable|file|mimes:mp4,mov,avi,mkv',
+            'video_2' => 'nullable|file|mimes:mp4,mov,avi,mkv',
             'footer_photo' => 'nullable|image',
         ]);
 
-        // Обработка обложки
         if ($request->hasFile('cover')) {
             if ($project->cover) {
                 Storage::disk('public')->delete($project->cover);
@@ -98,7 +108,6 @@ class ProjectController extends Controller
             $data['cover'] = $request->file('cover')->store('projects', 'public');
         }
 
-        // Обработка видеофайла
         if ($request->hasFile('video')) {
             if ($project->video) {
                 Storage::disk('public')->delete($project->video);
@@ -113,7 +122,6 @@ class ProjectController extends Controller
             $data['video_mobile'] = $request->file('video_mobile')->store('projects/videos', 'public');
         }
 
-        // Обработка фото
         if ($request->hasFile('photo_1')) {
             if ($project->photo_1) {
                 Storage::disk('public')->delete($project->photo_1);
@@ -126,6 +134,27 @@ class ProjectController extends Controller
                 Storage::disk('public')->delete($project->photo_2);
             }
             $data['photo_2'] = $request->file('photo_2')->store('projects', 'public');
+        }
+
+        if ($request->hasFile('video_1')) {
+            if ($project->video_1) {
+                Storage::disk('public')->delete($project->video_1);
+            }
+            $data['video_1'] = $request->file('video_1')->store('projects/videos', 'public');
+        }
+
+        if ($request->hasFile('video_2')) {
+            if ($project->video_2) {
+                Storage::disk('public')->delete($project->video_2);
+            }
+            $data['video_2'] = $request->file('video_2')->store('projects/videos', 'public');
+        }
+
+        if ($request->hasFile('video_mobile')) {
+            if ($project->video_mobile) {
+                Storage::disk('public')->delete($project->video_mobile);
+            }
+            $data['video_mobile'] = $request->file('video_mobile')->store('projects/videos', 'public');
         }
 
         if ($request->hasFile('footer_photo')) {
@@ -158,6 +187,12 @@ class ProjectController extends Controller
         }
         if ($project->photo_2) {
             Storage::disk('public')->delete($project->photo_2);
+        }
+        if ($project->video_1) {
+            Storage::disk('public')->delete($project->video_1);
+        }
+        if ($project->video_2) {
+            Storage::disk('public')->delete($project->video_2);
         }
         if ($project->footer_photo) {
             Storage::disk('public')->delete($project->footer_photo);

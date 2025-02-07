@@ -150,10 +150,10 @@
 
                             {{-- Photo 1 --}}
                             <div class="col-md-6">
-                                <label for="photo_1" class="form-label">Photo 1</label>
+                                <label for="photo_1" class="form-label">Cover Photo for Video 1</label>
                                 @if ($project->photo_1)
                                     <div class="mb-3">
-                                        <img src="{{ Storage::url($project->photo_1) }}" alt="Photo 1"
+                                        <img src="{{ Storage::url($project->photo_1) }}" alt="Cover Photo for Video 1"
                                             class="img-thumbnail" style="max-width:200px;">
                                     </div>
                                 @endif
@@ -165,7 +165,7 @@
 
                             {{-- Photo 2 --}}
                             <div class="col-md-6">
-                                <label for="photo_2" class="form-label">Photo 2</label>
+                                <label for="photo_2" class="form-label">Cover Photo for Video 2</label>
                                 @if ($project->photo_2)
                                     <div class="mb-3">
                                         <img src="{{ Storage::url($project->photo_2) }}" alt="Photo 2"
@@ -175,6 +175,38 @@
                                 <div class="input-group mb-3">
                                     <input type="file" name="photo_2" id="photo_2" class="form-control"
                                         accept="image/*">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="video_1" class="form-label">Additional Video File 1</label>
+                                @if ($project->video_1)
+                                    <div class="mb-3">
+                                        <video width="320" height="240" controls>
+                                            <source src="{{ Storage::url($project->video_1) }}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                @endif
+                                <div class="input-group mb-3">
+                                    <input type="file" name="video_1" id="video_1" class="form-control"
+                                        accept="video/mp4,video/mov,video/avi,video/mkv">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="video_2" class="form-label">Additional Video File 2</label>
+                                @if ($project->video_2)
+                                    <div class="mb-3">
+                                        <video width="320" height="240" controls>
+                                            <source src="{{ Storage::url($project->video_2) }}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                @endif
+                                <div class="input-group mb-3">
+                                    <input type="file" name="video_2" id="video_2" class="form-control"
+                                        accept="video/mp4,video/mov,video/avi,video/mkv">
                                 </div>
                             </div>
 

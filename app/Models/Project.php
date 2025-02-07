@@ -20,6 +20,8 @@ class Project extends Model
         'description',
         'photo_1',
         'photo_2',
+        'video_1',
+        'video_2',
         'footer_photo',
     ];
 
